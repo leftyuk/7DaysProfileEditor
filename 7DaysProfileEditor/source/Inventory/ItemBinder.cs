@@ -97,7 +97,7 @@ namespace SevenDaysProfileEditor.Inventory {
         /// </summary>
         /// <returns>True if item has all the parts, false otherwise</returns>
         public bool HasAllParts() {
-            if (itemValue.parts.Length > 0) {
+            if (itemValue.parts.Count > 0) {
                 for (int i = 0; i < 4; i++) {
                     if ((itemValue.parts[i] == null) || (itemValue.parts[i].type.Get() == 0)) {
                         return false;

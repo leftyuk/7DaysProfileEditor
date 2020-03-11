@@ -26,6 +26,18 @@ namespace SevenDaysSaveManipulator.PlayerData {
         //m_seekWaterLevel
         public Value<float> seekWaterLevel;
 
+        //TODO: wellness
+        public Stat wellness;
+
+        //TODO: speedModifier
+        public Stat speedModifier;
+
+        //TODO: sickness
+        public Stat sickness;
+
+        //TODO: gassiness
+        public Stat gassiness;
+
         public EntityStats() {}
 
         internal EntityStats(BinaryReader reader) {
@@ -43,10 +55,11 @@ namespace SevenDaysSaveManipulator.PlayerData {
                 immunity[i] = reader.ReadInt32();
             }
 
-            //health = new Stat(reader);
-            //stamina = new Stat(reader);
-            //coreTemp = new Stat(reader);
-            //water = new Stat(reader);
+
+            health = new Stat(reader);
+            stamina = new Stat(reader);
+            coreTemp = new Stat(reader);
+            water = new Stat(reader);
 
             seekWaterLevel = new Value<float>(reader.ReadSingle());
         }

@@ -14,6 +14,11 @@ namespace SevenDaysSaveManipulator.PlayerData {
         //b
         public Value<byte> playerJournalVersion;
 
+        public PlayerJournal(BinaryReader reader)
+        {
+            Read(reader);
+        }
+
         public void Read(BinaryReader reader) {
             playerJournalVersion = new Value<byte>(reader.ReadByte());
 

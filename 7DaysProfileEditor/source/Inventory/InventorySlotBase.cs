@@ -97,7 +97,7 @@ namespace SevenDaysProfileEditor.Inventory {
                     degradationBox = new InvertedIntegerTextBox(itemBinder.itemValue.useTimes, 1, degradation, textBoxWidth);
                     LabeledControl labeledDegradationBox = new LabeledControl("Durability", degradationBox, labeledControlWidth);
 
-                    qualityBox = new NumericTextBox<int>(itemBinder.itemValue.quality, 1, ItemData.MAX_QUALITY, textBoxWidth);
+                    qualityBox = new NumericTextBox<ushort>(itemBinder.itemValue.quality, 1, ItemData.MAX_QUALITY, textBoxWidth);
                     itemBinder.itemValue.quality.AddListener(this);
                     LabeledControl labeledQualityBox = new LabeledControl("Quality", qualityBox, labeledControlWidth);
 

@@ -26,7 +26,8 @@ namespace SevenDaysSaveManipulator.PlayerData {
             ushort itemStackLength = reader.ReadUInt16();
             ItemStack[] array = new ItemStack[itemStackLength];
             for (int i = 0; i < itemStackLength; ++i) {
-                array[i] = new ItemStack(reader);
+                //TODO:
+                //array[i] = new ItemStack(reader);
             }
 
             return array;

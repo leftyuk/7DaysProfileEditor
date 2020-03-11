@@ -17,8 +17,7 @@ namespace SevenDaysXMLParser {
         }
 
         internal static Object GetAttribute<T>(XmlElement e, string attribute, T defaultValue) {
-            switch (Type.GetTypeCode(typeof(T)))
-            {
+            switch (Type.GetTypeCode(typeof(T))) {
                 case (TypeCode.Boolean): {
                         if (bool.TryParse(e.GetAttribute(attribute), out bool result)) {
                             return result;

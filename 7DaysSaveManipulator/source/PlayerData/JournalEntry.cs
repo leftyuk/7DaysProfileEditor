@@ -65,11 +65,13 @@ namespace SevenDaysSaveManipulator.PlayerData {
 
         public void Read(BinaryReader reader) {
             entryType = new Value<JournalEntryTypes>((JournalEntryTypes)reader.ReadByte());
-            currentFileVersion = new Value<byte>(reader.ReadByte());
+            //TODO:
+            //currentFileVersion = new Value<byte>(reader.ReadByte());
             
             if (entryType.Get() == JournalEntryTypes.Tip) {
-                if (currentFileVersion.Get() == 1)
-                    throw new Exception();
+                //TODO:
+                //if (currentFileVersion.Get() == 1)
+                //    throw new Exception();
 
                 byte b = reader.ReadByte();
                 id = ((JournalTipEntry)b).ToString();
@@ -83,7 +85,8 @@ namespace SevenDaysSaveManipulator.PlayerData {
 
         public void Write(BinaryWriter writer) {
             writer.Write((byte)entryType.Get());
-            writer.Write(currentFileVersion.Get());
+            //TODO:
+            //writer.Write(currentFileVersion.Get());
 
             if (entryType.Get() == JournalEntryTypes.Tip) {
                 JournalTipEntry journalTipEntry = (JournalTipEntry)((int)Enum.Parse(typeof(JournalTipEntry), id));

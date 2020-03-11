@@ -34,8 +34,12 @@ namespace SevenDaysSaveManipulator.PlayerData {
         //C
         public Value<float> valueModifier;
 
+        public Stat(BinaryReader reader)
+        {
+            Read(reader);
+        }
 
-        public void Read(BinaryReader reader, Dictionary<ushort, StatModifier> idTable) {
+        public void Read(BinaryReader reader, Dictionary<ushort, StatModifier> idTable = null) {
             statVersion = new Value<int>(reader.ReadInt32());
             value = new Value<float>(reader.ReadSingle());
             maxModifier = new Value<float>(reader.ReadSingle());
@@ -52,7 +56,8 @@ namespace SevenDaysSaveManipulator.PlayerData {
                 StatModifier statModifier = StatModifier.Read(reader);
                 statModifier.stat = this;
                 statModifierList.Add(statModifier);
-                idTable[statModifier.fileId.Get()] = statModifier;
+                //TODO:
+                //idTable[statModifier.fileId.Get()] = statModifier;
             }
         }
 

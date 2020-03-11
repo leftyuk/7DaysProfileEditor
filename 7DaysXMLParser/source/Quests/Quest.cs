@@ -94,6 +94,7 @@ namespace SevenDaysXMLParser.Quests {
                             break;
                         default:
                             break;
+                        
                     }
                 } catch (XmlException) {}
             }

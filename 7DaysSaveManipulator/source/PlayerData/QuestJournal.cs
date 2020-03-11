@@ -14,17 +14,17 @@ namespace SevenDaysSaveManipulator.PlayerData {
 
         public QuestJournal() {}
 
-        internal QuestJournal(BinaryReader reader) {
-            Read(reader);
+        internal QuestJournal(BinaryReader reader, QuestsXml questsXml) {
+            Read(reader, questsXml);
         }
 
-        internal void Read(BinaryReader reader) {
+        internal void Read(BinaryReader reader, QuestsXml questsXml) {
             Utils.VerifyVersion(reader.ReadByte(), SaveVersionConstants.QUEST_JOURNAL);
 
             //num
             short questNumber = reader.ReadInt16();
             for (int i = 0; i < questNumber; ++i) {
-                quests.Add(new Quest() {
+                quests.Add(new Quest(reader, questsXml) {
                     ownerJournal = this
                 });
             }

@@ -118,7 +118,7 @@ namespace SevenDaysProfileEditor.GUI {
 
                 PostProcess(playerDataFile);
 
-                playerDataFile.Write(path);
+                playerDataFile.Save(path);
 
                 tab.path = path;
                 tab.fileName = path.Substring(path.LastIndexOf('\\') + 1);

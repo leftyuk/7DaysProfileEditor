@@ -128,11 +128,28 @@ namespace SevenDaysSaveManipulator.PlayerData {
         //gameStageBornAtWorldTime
         public Value<ulong> gameStageBornAtWorldTime;
 
+        //TODO: skills
+        public Skills skills;
+
+        //TODO: level
+        public Value<int> level;
+
+        //TODO: skillpoints
+        public Value<int> skillPoints;
+
+        //TODO: experience
+        public Value<uint> experience;
+
+        //TODO: food
+        public LiveStats food;
+        public LiveStats drink;
+
+
         public PlayerDataFile(string path) {
             Load(path);
         }
 
-        public PlayerDataFile DeepCopy() {
+        public PlayerDataFile Clone() {
             using (Stream stream = new MemoryStream()) {
                 IFormatter formatter = new BinaryFormatter();
                 formatter.Serialize(stream, this);
@@ -143,9 +160,9 @@ namespace SevenDaysSaveManipulator.PlayerData {
             }
         }
 
-        public void Load(string path) {
+        public void Load(string path, QuestsXml questsXml = null) {
             using (BinaryReader reader = new BinaryReader(new FileStream(path, FileMode.Open))) {
-                Read(reader);
+                Read(reader, questsXml);
             }
         }
 
@@ -155,7 +172,7 @@ namespace SevenDaysSaveManipulator.PlayerData {
             }
         }
 
-        private void Read(BinaryReader reader) {
+        private void Read(BinaryReader reader, QuestsXml questsXml = null) {
 
             if (reader.ReadChar() == 't' && reader.ReadChar() == 't' && reader.ReadChar() == 'p' &&
                 reader.ReadChar() == '\0') {
@@ -241,7 +258,7 @@ namespace SevenDaysSaveManipulator.PlayerData {
                 longestLife = new Value<float>(reader.ReadSingle());
 
                 waypoints = new WaypointCollection(reader);
-                questJournal = new QuestJournal(reader);
+                questJournal = new QuestJournal(reader, questsXml);
 
                 deathUpdateTime = new Value<int>(reader.ReadInt32());
                 currentLife = new Value<float>(reader.ReadSingle());
@@ -252,7 +269,7 @@ namespace SevenDaysSaveManipulator.PlayerData {
                 //bModdedSaveGame; I was asked to always save this variable as true
                 reader.ReadBoolean();
 
-                playerJournal = new PlayerJournal();
+                playerJournal = new PlayerJournal(reader);
 
                 rentedVMPosition = new Vector3D<int> {
                     x = new Value<int>(reader.ReadInt32()),
@@ -401,5 +418,6 @@ namespace SevenDaysSaveManipulator.PlayerData {
                 writer.Write(favoriteCreativeStacks[i]);
             }
         }
+
     }
 }
