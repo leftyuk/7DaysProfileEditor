@@ -143,9 +143,9 @@ namespace SevenDaysSaveManipulator.PlayerData {
             }
         }
 
-        public void Load(string path, QuestsXml questsXml) {
+        public void Load(string path) {
             using (BinaryReader reader = new BinaryReader(new FileStream(path, FileMode.Open))) {
-                Read(reader, questsXml);
+                Read(reader);
             }
         }
 
@@ -155,7 +155,7 @@ namespace SevenDaysSaveManipulator.PlayerData {
             }
         }
 
-        private void Read(BinaryReader reader, QuestsXml questsXml) {
+        private void Read(BinaryReader reader) {
 
             if (reader.ReadChar() == 't' && reader.ReadChar() == 't' && reader.ReadChar() == 'p' &&
                 reader.ReadChar() == '\0') {
@@ -241,7 +241,7 @@ namespace SevenDaysSaveManipulator.PlayerData {
                 longestLife = new Value<float>(reader.ReadSingle());
 
                 waypoints = new WaypointCollection(reader);
-                questJournal = new QuestJournal(reader, questXml);
+                questJournal = new QuestJournal(reader);
 
                 deathUpdateTime = new Value<int>(reader.ReadInt32());
                 currentLife = new Value<float>(reader.ReadSingle());
@@ -252,7 +252,7 @@ namespace SevenDaysSaveManipulator.PlayerData {
                 //bModdedSaveGame; I was asked to always save this variable as true
                 reader.ReadBoolean();
 
-                playerJournal = new PlayerJournal(reader);
+                playerJournal = new PlayerJournal();
 
                 rentedVMPosition = new Vector3D<int> {
                     x = new Value<int>(reader.ReadInt32()),

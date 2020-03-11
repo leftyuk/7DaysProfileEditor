@@ -14,7 +14,7 @@ namespace SevenDaysSaveManipulator.PlayerData {
 
         public QuestJournal() {}
 
-        internal QuestJournal(BinaryReader reader, QuestsXml questsXml) {
+        internal QuestJournal(BinaryReader reader) {
             Read(reader);
         }
 
@@ -24,7 +24,7 @@ namespace SevenDaysSaveManipulator.PlayerData {
             //num
             short questNumber = reader.ReadInt16();
             for (int i = 0; i < questNumber; ++i) {
-                quests.Add(new Quest(reader) {
+                quests.Add(new Quest() {
                     ownerJournal = this
                 });
             }

@@ -34,6 +34,7 @@ namespace SevenDaysSaveManipulator.PlayerData {
         //C
         public Value<float> valueModifier;
 
+
         public void Read(BinaryReader reader, Dictionary<ushort, StatModifier> idTable) {
             statVersion = new Value<int>(reader.ReadInt32());
             value = new Value<float>(reader.ReadSingle());

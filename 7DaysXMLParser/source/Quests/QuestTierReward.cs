@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace SevenDaysXMLParser.source.Quests {
+namespace SevenDaysXMLParser.Quests {
     public class QuestTierReward {
 
         public readonly string id;

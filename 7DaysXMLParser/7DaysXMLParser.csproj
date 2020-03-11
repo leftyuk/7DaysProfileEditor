@@ -7,7 +7,7 @@
     <ProjectGuid>{4806EAF8-92EF-4404-A2E5-B251204ACB55}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>_7DaysXMLParser</RootNamespace>
+    <RootNamespace>SevenDaysXMLParser</RootNamespace>
     <AssemblyName>7DaysXMLParser</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

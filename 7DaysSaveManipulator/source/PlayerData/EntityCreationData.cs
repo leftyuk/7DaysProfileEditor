@@ -185,7 +185,7 @@ namespace SevenDaysSaveManipulator.PlayerData {
                 entityData = new MemoryStream(buffer);
             }
 
-            if (reader.ReadBoolean() {
+            if (reader.ReadBoolean()) {
                 int tileEntityType = reader.ReadInt32();
                 traderData = (TileEntityTrader)TileEntity.Instantiate((TileEntityType)(tileEntityType));
                 traderData.Read(reader);

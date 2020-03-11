@@ -12,6 +12,16 @@ namespace SevenDaysSaveManipulator.PlayerData {
         //itemValue
         public ItemValue itemValue;
 
+        internal ItemStack()
+        {
+
+        }
+
+        internal ItemStack(BinaryReader reader)
+        {
+            Read(reader);
+        }
+
         public static ItemStack[] ReadItemStack(BinaryReader reader) {
             ushort itemStackLength = reader.ReadUInt16();
             ItemStack[] array = new ItemStack[itemStackLength];

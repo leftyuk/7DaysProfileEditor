@@ -1,5 +1,5 @@
-﻿using SevenDaysXMLParser.source;
-using SevenDaysXMLParser.source.Quests;
+﻿using SevenDaysXMLParser;
+using SevenDaysXMLParser.Quests;
 using System;
 using System.Collections.Generic;
 using System.IO;

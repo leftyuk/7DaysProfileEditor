@@ -43,10 +43,10 @@ namespace SevenDaysSaveManipulator.PlayerData {
                 immunity[i] = reader.ReadInt32();
             }
 
-            health = new Stat(reader);
-            stamina = new Stat(reader);
-            coreTemp = new Stat(reader);
-            water = new Stat(reader);
+            //health = new Stat(reader);
+            //stamina = new Stat(reader);
+            //coreTemp = new Stat(reader);
+            //water = new Stat(reader);
 
             seekWaterLevel = new Value<float>(reader.ReadSingle());
         }

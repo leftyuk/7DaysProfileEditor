@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace SevenDaysXMLParser.source.Quests {
+namespace SevenDaysXMLParser.Quests {
     public class QuestList {
 
         public readonly string id;
@@ -21,7 +21,7 @@ namespace SevenDaysXMLParser.source.Quests {
 
             foreach (XmlElement child in e.ChildNodes) {
                 if (child.Name.Equals("quest")) {
-                    questList.Add((child.GetAttribute("id"));
+                    questList.Add(child.GetAttribute("id"));
                 }
             }
         }

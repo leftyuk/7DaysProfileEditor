@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace SevenDaysXMLParser.source {
+namespace SevenDaysXMLParser {
     class Utils {
         internal static XmlDocument LoadXml(String path) {
             XmlDocument xml = new XmlDocument();
@@ -17,7 +17,8 @@ namespace SevenDaysXMLParser.source {
         }
 
         internal static Object GetAttribute<T>(XmlElement e, string attribute, T defaultValue) {
-            switch (Type.GetTypeCode(typeof(T)) {
+            switch (Type.GetTypeCode(typeof(T)))
+            {
                 case (TypeCode.Boolean): {
                         if (bool.TryParse(e.GetAttribute(attribute), out bool result)) {
                             return result;

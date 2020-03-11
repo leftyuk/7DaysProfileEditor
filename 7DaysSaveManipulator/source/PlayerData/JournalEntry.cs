@@ -18,6 +18,8 @@ namespace SevenDaysSaveManipulator.PlayerData {
         //timestamp
         public Value<ulong> timeStamp;
 
+        private Value<byte> currentFileVersion;
+
         public enum JournalEntryTypes {
             Invalid,
             Tip,

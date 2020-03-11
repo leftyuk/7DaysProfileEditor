@@ -114,7 +114,7 @@ namespace SevenDaysProfileEditor.GUI {
                     path += ".ttp";
                 }
 
-                PlayerDataFile playerDataFile = tab.playerDataFile.Clone();
+                PlayerDataFile playerDataFile = tab.playerDataFile.DeepCopy();
 
                 PostProcess(playerDataFile);
 
@@ -251,21 +251,21 @@ namespace SevenDaysProfileEditor.GUI {
         /// </summary>
         /// <param name="playerDataFile"></param>
         private void PostProcess(PlayerDataFile playerDataFile) {
-            PlayerDataFile copy = playerDataFile.Clone();
+            PlayerDataFile copy = playerDataFile.DeepCopy();
 
             // Remove skills with default values.
             Dictionary<int, Skill> newSkillDictionary = new Dictionary<int, Skill>();
 
-            foreach (int key in copy.skills.skillDictionary.Keys) {
-                Skill skill = null;
-                copy.skills.skillDictionary.TryGetValue(key, out skill);
+            //foreach (int key in copy.skills.skillDictionary.Keys) {
+            //    Skill skill = null;
+            //    copy.skills.skillDictionary.TryGetValue(key, out skill);
 
-                if (!SkillBinder.IsDefaultValues(skill)) {
-                    newSkillDictionary.Add(key, skill);
-                }
-            }
+            //    if (!SkillBinder.IsDefaultValues(skill)) {
+            //        newSkillDictionary.Add(key, skill);
+            //    }
+            //}
 
-            playerDataFile.skills.skillDictionary = newSkillDictionary;
+            //playerDataFile.skills.skillDictionary = newSkillDictionary;
 
             CleanUpInventory(playerDataFile.bag);
             CleanUpInventory(playerDataFile.inventory);

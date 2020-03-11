@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace SevenDaysXMLParser.source.Quests {
+namespace SevenDaysXMLParser.Quests {
     public class Quest {
 
         public readonly string id;
@@ -80,7 +80,7 @@ namespace SevenDaysXMLParser.source.Quests {
                             requirements[requirement.id] = requirement;
                             break;
                         case "objective":
-                            QuestObjective objective = new QuestObjective(child));
+                            QuestObjective objective = new QuestObjective(child);
                             objectives[objective.id] = objective;
                             break;
                         case "reward":
